@@ -4,6 +4,11 @@ namespace TracerLib
 {
     public class Tracer : ITracer
     {
+        private TracerResult _tracerResult;
+        public Tracer()
+        {
+            _tracerResult = new TracerResult();
+        }
         public void StartTrace()
         {
 
@@ -16,7 +21,7 @@ namespace TracerLib
 
         public TracerResult GetTraceResult()
         {
-            return null;
+            return _tracerResult;
         }
     }
 }
