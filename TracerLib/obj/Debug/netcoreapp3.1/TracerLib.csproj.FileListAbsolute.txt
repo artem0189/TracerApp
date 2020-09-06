@@ -1,0 +1,8 @@
+C:\Users\USER\Desktop\лб\спп\TracerApp\MainProgram\TracerLib\bin\Debug\netcoreapp3.1\TracerLib.deps.json
+C:\Users\USER\Desktop\лб\спп\TracerApp\MainProgram\TracerLib\bin\Debug\netcoreapp3.1\TracerLib.dll
+C:\Users\USER\Desktop\лб\спп\TracerApp\MainProgram\TracerLib\bin\Debug\netcoreapp3.1\TracerLib.pdb
+C:\Users\USER\Desktop\лб\спп\TracerApp\MainProgram\TracerLib\obj\Debug\netcoreapp3.1\TracerLib.csprojAssemblyReference.cache
+C:\Users\USER\Desktop\лб\спп\TracerApp\MainProgram\TracerLib\obj\Debug\netcoreapp3.1\TracerLib.AssemblyInfoInputs.cache
+C:\Users\USER\Desktop\лб\спп\TracerApp\MainProgram\TracerLib\obj\Debug\netcoreapp3.1\TracerLib.AssemblyInfo.cs
+C:\Users\USER\Desktop\лб\спп\TracerApp\MainProgram\TracerLib\obj\Debug\netcoreapp3.1\TracerLib.dll
+C:\Users\USER\Desktop\лб\спп\TracerApp\MainProgram\TracerLib\obj\Debug\netcoreapp3.1\TracerLib.pdb

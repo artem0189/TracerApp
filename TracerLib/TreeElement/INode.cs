@@ -8,5 +8,6 @@ namespace TracerLib.TreeElement
     {
         int Time { get; set; }
         List<INode> Methods { get; }
+        INode PreviousNode { get; }
     }
 }

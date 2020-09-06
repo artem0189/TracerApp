@@ -1,0 +1,14 @@
+C:\Users\USER\Desktop\лб\спп\TracerApp\MainProgram\MainProgram\bin\Debug\netcoreapp3.1\MainProgram.exe
+C:\Users\USER\Desktop\лб\спп\TracerApp\MainProgram\MainProgram\bin\Debug\netcoreapp3.1\MainProgram.deps.json
+C:\Users\USER\Desktop\лб\спп\TracerApp\MainProgram\MainProgram\bin\Debug\netcoreapp3.1\MainProgram.runtimeconfig.json
+C:\Users\USER\Desktop\лб\спп\TracerApp\MainProgram\MainProgram\bin\Debug\netcoreapp3.1\MainProgram.runtimeconfig.dev.json
+C:\Users\USER\Desktop\лб\спп\TracerApp\MainProgram\MainProgram\bin\Debug\netcoreapp3.1\MainProgram.dll
+C:\Users\USER\Desktop\лб\спп\TracerApp\MainProgram\MainProgram\bin\Debug\netcoreapp3.1\MainProgram.pdb
+C:\Users\USER\Desktop\лб\спп\TracerApp\MainProgram\MainProgram\bin\Debug\netcoreapp3.1\TracerLib.dll
+C:\Users\USER\Desktop\лб\спп\TracerApp\MainProgram\MainProgram\bin\Debug\netcoreapp3.1\TracerLib.pdb
+C:\Users\USER\Desktop\лб\спп\TracerApp\MainProgram\MainProgram\obj\Debug\netcoreapp3.1\MainProgram.csprojAssemblyReference.cache
+C:\Users\USER\Desktop\лб\спп\TracerApp\MainProgram\MainProgram\obj\Debug\netcoreapp3.1\MainProgram.AssemblyInfoInputs.cache
+C:\Users\USER\Desktop\лб\спп\TracerApp\MainProgram\MainProgram\obj\Debug\netcoreapp3.1\MainProgram.AssemblyInfo.cs
+C:\Users\USER\Desktop\лб\спп\TracerApp\MainProgram\MainProgram\obj\Debug\netcoreapp3.1\MainProgram.csproj.CopyComplete
+C:\Users\USER\Desktop\лб\спп\TracerApp\MainProgram\MainProgram\obj\Debug\netcoreapp3.1\MainProgram.dll
+C:\Users\USER\Desktop\лб\спп\TracerApp\MainProgram\MainProgram\obj\Debug\netcoreapp3.1\MainProgram.pdb
