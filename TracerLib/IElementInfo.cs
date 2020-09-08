@@ -4,9 +4,10 @@ using System.Text;
 
 namespace TracerLib
 {
-    internal interface IElementInfo
+    public interface IElementInfo
     {
         double Time { get; set; }
         List<MethodInfo> Methods { get; }
+        IElementInfo Parent { get; }
     }
 }

@@ -8,6 +8,6 @@ namespace TracerLib
     {
         void StartTrace();
         void StopTrace();
-        TracerResult GetTraceResult();
+        TraceResult GetTraceResult();
     }
 }

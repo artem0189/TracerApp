@@ -1,33 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
-using TracerLib.TreeElement;
+using System.Threading;
+using System.Diagnostics;
+using System.Reflection;
 
 namespace TracerLib
 {
     public class Tracer : ITracer
     {
-        private Stack<DateTime> _timeStack;
-        private TracerResult _tracerResult;
+        private TraceResult _tracerResult;
 
         public Tracer()
         {
-            _timeStack = new Stack<DateTime>();
-            _tracerResult = new TracerResult();
+            _tracerResult = new TraceResult();
         }
 
         public void StartTrace()
         {
-            _tracerResult.AddMethodInfo(System.Threading.Thread.CurrentThread.ManagedThreadId, "1", "2");
-            _timeStack.Push(DateTime.Now);
+            StackTrace stackTrace = new StackTrace();
+            MethodBase methodInfo = stackTrace.GetFrame(1).GetMethod();
+            _tracerResult.AddMethodIndo(Thread.CurrentThread.ManagedThreadId, methodInfo);
         }
 
         public void StopTrace()
         {
-            TimeSpan interval = DateTime.Now - _timeStack.Pop();
-            _tracerResult.SetMethodTime(interval.TotalMilliseconds);
+            _tracerResult.CloseMethodInfo(Thread.CurrentThread.ManagedThreadId);
         }
 
-        public TracerResult GetTraceResult()
+        public TraceResult GetTraceResult()
         {
             return _tracerResult;
         }
