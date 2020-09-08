@@ -1,5 +1,8 @@
 ﻿using System;
 using TracerLib;
+using TracerLib.TreeElement;
+using System.Collections.Generic;
+using System.Text.Json;
 
 namespace MainProgram
 {
@@ -48,6 +51,10 @@ namespace MainProgram
             Tracer tracer = new Tracer();
             Foo foo = new Foo(tracer);
             foo.MyMethod();
+
+            List<int> t = new List<int>() { 5, 10, 15 };
+            string json = JsonSerializer.Serialize<List<int>>(t);
+            Console.WriteLine(json);
         }
     }
 }
