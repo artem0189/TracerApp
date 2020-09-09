@@ -52,12 +52,10 @@ namespace MainProgram
         static void Main(string[] args)
         {
             Tracer tracer = new Tracer();
-            new Foo(tracer).MyMethod();
-            new Foo(tracer).MyMethod();
-
-            Thread thr1 = new Thread(new ThreadStart(new Bar(tracer).InnerMethod));
+            Thread thr1 = new Thread(new ThreadStart(new Foo(tracer).MyMethod));
             thr1.Start();
             thr1.Join();
+            new Foo(tracer).MyMethod();
 
             string json = JsonConvert.SerializeObject(tracer.GetTraceResult(), Formatting.Indented);
             Console.WriteLine(json);

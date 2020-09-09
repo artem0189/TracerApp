@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Reflection;
 using System.Collections.Generic;
 using System.Collections.Concurrent;
@@ -7,31 +8,33 @@ namespace TracerLib
 {
     public class TraceResult
     {
-        public ConcurrentDictionary<int, ThreadInfo> Threads { get; }
+        public ConcurrentBag<ThreadInfo> Threads { get; }
         internal ThreadInfo _currentThread;
 
         internal TraceResult()
         {
-            Threads = new ConcurrentDictionary<int, ThreadInfo>();
+            Threads = new ConcurrentBag<ThreadInfo>();
         }
 
         internal void AddMethodIndo(int threadId, MethodBase methodInfo)
         {
-            _currentThread = Threads.GetOrAdd(threadId, new ThreadInfo(threadId));
+            if (Threads.Where(elem => elem.Id == threadId).Count() == 0)
+            {
+                _currentThread = new ThreadInfo(threadId);
+                Threads.Add(_currentThread);
+            }
+
             MethodInfo newMethod = new MethodInfo(methodInfo.Name, methodInfo.DeclaringType.Name, _currentThread.CurrentElement);
-            newMethod.Time = (new TimeSpan(DateTime.Now.Ticks)).TotalMilliseconds;
             _currentThread.CurrentElement.Methods.Add(newMethod);
             _currentThread.CurrentElement = _currentThread.CurrentElement.Methods[_currentThread.CurrentElement.Methods.Count - 1];
         }
 
-        internal void CloseMethodInfo(int threadId)
+        internal void SetTimeAndGoToParent(int threadId, double time)
         {
-            if (Threads.TryGetValue(threadId, out _currentThread))
-            {
-                _currentThread.CurrentElement.Time = (new TimeSpan(DateTime.Now.Ticks)).TotalMilliseconds - _currentThread.CurrentElement.Time;
-                _currentThread.Time += _currentThread.CurrentElement.Time;
-                _currentThread.CurrentElement = _currentThread.CurrentElement.Parent;
-            }
+            _currentThread = Threads.Where(elem => elem.Id == threadId).First();
+            _currentThread.CurrentElement.Time = time;
+            _currentThread.Time += time;
+            _currentThread.CurrentElement = _currentThread.CurrentElement.Parent;
         }
     }
 }
