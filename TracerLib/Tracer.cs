@@ -10,39 +10,42 @@ namespace TracerLib
     public class Tracer : ITracer
     {
         private TraceResult _tracerResult;
-        private ConcurrentDictionary<int, ConcurrentStack<DateTime>> _stacks;
+        private ConcurrentDictionary<int, Stack<double>> _stacks;
 
         public Tracer()
         {
             _tracerResult = new TraceResult();
-            _stacks = new ConcurrentDictionary<int, ConcurrentStack<DateTime>>();
+            _stacks = new ConcurrentDictionary<int, Stack<double>>();
         }
 
         public void StartTrace()
         {
             int threadId = Thread.CurrentThread.ManagedThreadId;
-            _stacks.GetOrAdd(threadId, new ConcurrentStack<DateTime>()).Push(DateTime.Now);
-            StackTrace stackTrace = new StackTrace();
-            MethodBase methodInfo = stackTrace.GetFrame(1).GetMethod();
-            _tracerResult.AddMethodIndo(threadId, methodInfo);
+            MethodBase methodInfo = GetMethodInformation();
+            _tracerResult.AddMethodIndo(threadId, methodInfo.Name, methodInfo.DeclaringType.Name);
+            _stacks.GetOrAdd(threadId, new Stack<double>()).Push(GetTimeInMilliseconds());
         }
 
         public void StopTrace()
         {
-            double time = CalculateTime(Thread.CurrentThread.ManagedThreadId);
-            _tracerResult.SetTimeAndGoToParent(Thread.CurrentThread.ManagedThreadId ,time);
+            int threadId = Thread.CurrentThread.ManagedThreadId;
+            Stack<double> stack;
+            if (_stacks.TryGetValue(threadId, out stack))
+            {
+                _tracerResult.SetTimeAndGoToParent(threadId, GetTimeInMilliseconds() - stack.Pop());
+            }
         }
 
-        private double CalculateTime(int threadId)
+        private MethodBase GetMethodInformation()
         {
-            double timeMilliseconds = 0;
-            DateTime stopTime = DateTime.Now;
-            DateTime startTime;
-            if (_stacks[threadId].TryPop(out startTime))
-            {
-                timeMilliseconds = (stopTime - startTime).TotalMilliseconds;
-            }
-            return timeMilliseconds;
+            StackTrace stackTrace = new StackTrace();
+            return stackTrace.GetFrame(2).GetMethod();
+        }
+
+        private double GetTimeInMilliseconds()
+        {
+            TimeSpan timeSpan = new TimeSpan(DateTime.Now.Ticks);
+            return timeSpan.TotalMilliseconds;
         }
 
         public TraceResult GetTraceResult()

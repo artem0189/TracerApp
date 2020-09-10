@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Threading;
 using TracerLib;
-using Newtonsoft.Json;
-using System.Collections.Generic;
-using System.Text.Json;
+using Serialization;
 
 namespace MainProgram
 {
@@ -42,6 +40,16 @@ namespace MainProgram
             _tracer.StartTrace();
 
             Thread.Sleep(50);
+            InnerMethod2();
+
+            _tracer.StopTrace();
+        }
+
+        public void InnerMethod2()
+        {
+            _tracer.StartTrace();
+
+            Thread.Sleep(100);
 
             _tracer.StopTrace();
         }
@@ -52,13 +60,14 @@ namespace MainProgram
         static void Main(string[] args)
         {
             Tracer tracer = new Tracer();
-            Thread thr1 = new Thread(new ThreadStart(new Foo(tracer).MyMethod));
-            thr1.Start();
-            thr1.Join();
+
+            Thread thread1 = new Thread(new ThreadStart(new Foo(tracer).MyMethod));
+            thread1.Start();
+            thread1.Join();
+
             new Foo(tracer).MyMethod();
 
-            string json = JsonConvert.SerializeObject(tracer.GetTraceResult(), Formatting.Indented);
-            Console.WriteLine(json);
+            Console.WriteLine(new SerializerXml().Serialize<TraceResult>(tracer.GetTraceResult()));
         }
     }
 }

@@ -1,0 +1,8 @@
+C:\Users\USER\Desktop\лб\спп\TracerApp\MainProgram\Serialization\bin\Debug\netcoreapp3.1\Serialization.deps.json
+C:\Users\USER\Desktop\лб\спп\TracerApp\MainProgram\Serialization\bin\Debug\netcoreapp3.1\Serialization.dll
+C:\Users\USER\Desktop\лб\спп\TracerApp\MainProgram\Serialization\obj\Debug\netcoreapp3.1\Serialization.csprojAssemblyReference.cache
+C:\Users\USER\Desktop\лб\спп\TracerApp\MainProgram\Serialization\obj\Debug\netcoreapp3.1\Serialization.AssemblyInfoInputs.cache
+C:\Users\USER\Desktop\лб\спп\TracerApp\MainProgram\Serialization\obj\Debug\netcoreapp3.1\Serialization.AssemblyInfo.cs
+C:\Users\USER\Desktop\лб\спп\TracerApp\MainProgram\Serialization\bin\Debug\netcoreapp3.1\Serialization.pdb
+C:\Users\USER\Desktop\лб\спп\TracerApp\MainProgram\Serialization\obj\Debug\netcoreapp3.1\Serialization.dll
+C:\Users\USER\Desktop\лб\спп\TracerApp\MainProgram\Serialization\obj\Debug\netcoreapp3.1\Serialization.pdb
