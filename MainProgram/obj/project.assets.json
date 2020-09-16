@@ -11,19 +11,6 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
-      "Serialization/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
-        "dependencies": {
-          "Newtonsoft.Json": "12.0.3"
-        },
-        "compile": {
-          "bin/placeholder/Serialization.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Serialization.dll": {}
-        }
-      },
       "TracerLib/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
@@ -71,11 +58,6 @@
         "packageIcon.png"
       ]
     },
-    "Serialization/1.0.0": {
-      "type": "project",
-      "path": "../Serialization/Serialization.csproj",
-      "msbuildProject": "../Serialization/Serialization.csproj"
-    },
     "TracerLib/1.0.0": {
       "type": "project",
       "path": "../TracerLib/TracerLib.csproj",
@@ -84,7 +66,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "Serialization >= 1.0.0",
+      "Newtonsoft.Json >= 12.0.3",
       "TracerLib >= 1.0.0"
     ]
   },
@@ -114,9 +96,6 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\USER\\Desktop\\лб\\спп\\TracerApp\\MainProgram\\Serialization\\Serialization.csproj": {
-              "projectPath": "C:\\Users\\USER\\Desktop\\лб\\спп\\TracerApp\\MainProgram\\Serialization\\Serialization.csproj"
-            },
             "C:\\Users\\USER\\Desktop\\лб\\спп\\TracerApp\\MainProgram\\TracerLib\\TracerLib.csproj": {
               "projectPath": "C:\\Users\\USER\\Desktop\\лб\\спп\\TracerApp\\MainProgram\\TracerLib\\TracerLib.csproj"
             }
@@ -131,6 +110,12 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "dependencies": {
+          "Newtonsoft.Json": {
+            "target": "Package",
+            "version": "[12.0.3, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

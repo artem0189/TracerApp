@@ -1,0 +1,16 @@
+<root>
+  <thread id="5" time="409ms">
+    <method name="MyMethod" class="Foo" time="155ms">
+      <method name="InnerMethod" class="Bar" time="153ms">
+        <method name="InnerMethod2" class="Bar" time="101ms" />
+      </method>
+    </method>
+  </thread>
+  <thread id="1" time="402ms">
+    <method name="MyMethod" class="Foo" time="151ms">
+      <method name="InnerMethod" class="Bar" time="151ms">
+        <method name="InnerMethod2" class="Bar" time="100ms" />
+      </method>
+    </method>
+  </thread>
+</root>

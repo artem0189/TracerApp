@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Threading;
 using TracerLib;
-using Serialization;
+using MainProgram.Serialization;
+using MainProgram.Writer;
 
 namespace MainProgram
 {
@@ -66,8 +67,7 @@ namespace MainProgram
             thread1.Join();
 
             new Foo(tracer).MyMethod();
-
-            Console.WriteLine(new SerializerXml().Serialize<TraceResult>(tracer.GetTraceResult()));
+            FileWriter.Output(new SerializerXml(), tracer.GetTraceResult());
         }
     }
 }
